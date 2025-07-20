@@ -1,0 +1,11 @@
+Request -> Middleware -> Guard -> Interceptor -> Route Handler -> Interceptor -> Response
+
+Request →
+  Middleware →
+    Filter →
+      Guard →
+        Pipe →
+          Controller (Route Handler) →
+            Interceptor →
+                Service →
+                    Response
