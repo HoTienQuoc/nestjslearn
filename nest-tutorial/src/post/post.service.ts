@@ -5,14 +5,14 @@ import { Post, PostDocument } from './schemas/post.schema';
 
 @Injectable()
 export class PostService {
-    constructor(@InjectModel(Post.name) private catModel: Model<Post>) {}
+    constructor(@InjectModel(Post.name) private postModel: Model<Post>) {}
 
     async create(createCatDto: PostDocument): Promise<Post> {
-        const createdCat = new this.catModel(createCatDto);
-        return createdCat.save();
+        const createdPost = new this.postModel(createCatDto);
+        return createdPost.save();
     }
 
     async findAll(): Promise<Post[]> {
-        return this.catModel.find().exec();
+        return this.postModel.find().exec();
     }
 }
