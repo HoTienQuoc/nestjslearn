@@ -1,8 +1,9 @@
 import { PostService } from './post.service';
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, ClassSerializerInterceptor, Controller, Post, UseInterceptors } from '@nestjs/common';
 import { PostDocument } from './schemas/post.schema';
 
 @Controller('posts')
+@UseInterceptors(ClassSerializerInterceptor)
 export class PostController {
     constructor(private readonly postService: PostService){}
 
