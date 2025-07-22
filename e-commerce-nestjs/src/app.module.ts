@@ -1,3 +1,4 @@
+import { Role } from 'src/role/entities/role.entity';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -23,7 +24,7 @@ import { RoleModule } from './role/role.module';
         username: configService.get<string>('DB_USERNAME')!,
         password: configService.get<string>('DB_PASSWORD')!,
         database: configService.get<string>('DB_DATABASE')!,
-        entities: [User],
+        entities: [User, Role],
         synchronize: true,
       }),
       inject: [ConfigService],
