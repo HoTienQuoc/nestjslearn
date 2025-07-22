@@ -8,6 +8,9 @@ import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { RoleModule } from './role/role.module';
+import { EndpointModule } from './endpoint/endpoint.module';
+import { Endpoint } from './endpoint/entities/endpoint.entity';
+import { PermissionsModule } from './permissions/permissions.module';
 
 @Module({
   imports: [
@@ -24,7 +27,7 @@ import { RoleModule } from './role/role.module';
         username: configService.get<string>('DB_USERNAME')!,
         password: configService.get<string>('DB_PASSWORD')!,
         database: configService.get<string>('DB_DATABASE')!,
-        entities: [User, Role],
+        entities: [User, Role, Endpoint],
         synchronize: true,
       }),
       inject: [ConfigService],
@@ -36,6 +39,10 @@ import { RoleModule } from './role/role.module';
     AuthModule,
 
     RoleModule,
+
+    EndpointModule,
+
+    PermissionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
